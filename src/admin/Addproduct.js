@@ -83,6 +83,13 @@ function Addblog() {
                 onChange={(e) => setDesc(e.target.value)}
               ></textarea>
             </div>
+            <div className="mb-3">
+              <progress
+                className="imageUpload__progress"
+                value={progress}
+                max="100"
+              />
+            </div>
             <div class="mb-3">
               <label for="formFile" class="form-label">
                 Upload Image

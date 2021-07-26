@@ -11,7 +11,7 @@ import { useStateValue } from "./StateProvider";
 function App() {
   // const [user, setUser] = useState(null);
 
-  const [{ user }, dispatch] = useStateValue();
+  const [{ user }] = useStateValue();
   return (
     <div className="app">
       {!user ? (
