@@ -12,7 +12,8 @@ function Blogs() {
               <a href="#!">
                 <img
                   class="card-img-top"
-                  src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg"
+                  style={{ height: "30rem" }}
+                  src="https://images.unsplash.com/photo-1590923179469-72c3d1959680?ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDV8UzRNS0xBc0JCNzR8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
                   alt="..."
                 />
               </a>

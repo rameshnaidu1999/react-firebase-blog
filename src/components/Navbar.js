@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { useStateValue } from "../StateProvider";
 
 function Navbar() {
+  const [{ user }] = useStateValue();
+
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark mb-2">
         <div className="container">
           <a className="navbar-brand" href="#!">
-            Start Bootstrap
+            Bloggy
           </a>
           <button
             className="navbar-toggler"
@@ -33,13 +37,13 @@ function Navbar() {
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#!">
-                  Contact
+                  {user?.email}
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" aria-current="page" href="#!">
+                <Link className="nav-link" aria-current="page" to="/createblog">
                   Blog
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
                 <a className="nav-link active" aria-current="page" href="#!">
