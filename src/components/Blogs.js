@@ -1,7 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { db } from "../config/firebase";
 import RelativeBlogs from "./RelativeBlogs";
 
-function Blogs() {
+function Blogs({ postId, imageUrl, desc, title }) {
+  const [posts, setPosts] = useState([]);
+  useEffect(() => {
+    db.collection("blogs")
+      .orderBy("timestamp", "desc")
+      .onSnapshot((snapshot) => {
+        setPosts(
+          snapshot.docs.map((doc) => ({
+            id: doc.id,
+            post: doc.data(),
+          }))
+        );
+      });
+  }, []);
   return (
     <div>
       <div class="container">
@@ -31,7 +45,19 @@ function Blogs() {
                 </a>
               </div>
             </div>
-            <RelativeBlogs />
+            <div className="row">
+              {posts.map(({ id, post }) => (
+                <div class="col-lg-6">
+                  <RelativeBlogs
+                    key={post.id}
+                    postId={id}
+                    desc={post.desc}
+                    title={post.title}
+                    imageUrl={post.imageUrl}
+                  />
+                </div>
+              ))}
+            </div>
           </div>
           <div class="col-lg-4">
             {/* Search widget */}

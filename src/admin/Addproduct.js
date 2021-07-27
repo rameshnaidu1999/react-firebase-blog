@@ -42,6 +42,7 @@ function Addblog() {
               desc: desc,
               imageUrl: url,
               imagename: image.name,
+              title: title,
             });
           })
           .then(() => {
